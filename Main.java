@@ -72,9 +72,21 @@ System.out.println("Player two, What's your name? ");
       p1turn = true;
       System.out.println(playerOneName + "'s turn (x): ");
       System.out.println("Enter row number (1-" + boardLength + "): ");
-      int row = scn.nextInt();
+      int row = scn.nextInt() - 1;
+      if (row < 0 || row > boardLength - 1){
+        while (row < 0 || row > boardLength - 1){
+        System.out.println("Please enter a valid row number: ");
+          row = scn.nextInt() - 1;
+        }
+      }
       System.out.println("Enter column number (1-" + boardHeight + "): ");
-      int col = scn.nextInt();
+      int col = scn.nextInt() - 1;
+      if (col < 0 || col > boardLength - 1){
+        while (col < 0 || col > boardLength -1){
+        System.out.println("Please enter a valid row number: ");
+          col = scn.nextInt() - 1;
+        }
+      }
     }
   }
 

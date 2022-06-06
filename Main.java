@@ -19,20 +19,23 @@ class Main {
     int boardHeight = 3;
     boolean p1turn = false;
     boolean p2turn = false;
+    boolean gameOver = false;
+    String playerOneName = "";
+    String playerTwoName = "";
     
-    introduction(scn);
-    playGame(3, 3);
+    introduction(scn, playerOneName, playerTwoName);
+    playGame(boardLength, boardHeight, gameOver, playerOneName, playerTwoName, p1turn, p2turn, scn);
     
     
   }
 
-  public static void introduction(Scanner scn){
+  public static void introduction(Scanner scn, String playerOneName, String playerTwoName){
     System.out.println("Welcome to special tic-tac-toe!");
     System.out.println("Player one, What's your name? ");
-    String playerOneName = scn.next();
+    playerOneName = scn.next();
 
 System.out.println("Player two, What's your name? ");
-    String playerTwoName = scn.next();
+    playerTwoName = scn.next();
     System.out.println("Welcome, " + playerOneName + " and " + playerTwoName + "!");
     System.out.println("Would you like to customize settings for your tic-tac-toe game? (y/n) ");
     if (scn.next().toLowerCase().equals("y")){
@@ -48,13 +51,6 @@ System.out.println("Player two, What's your name? ");
       boardHeight = scn.nextInt() - 1;
      System.out.println(boardLength + " " + boardHeight);
   }
-
-  public static void playGame(int boardLength, int boardHeight){
-    // for loop: get player's input and print board
-    board(boardLength, boardHeight);
-    
-  }
-
   public static void board(int boardLength, int boardHeight){
     System.out.println("Board:");
     char[][] board = new char[boardLength][boardHeight];
@@ -67,11 +63,22 @@ System.out.println("Player two, What's your name? ");
       System.out.println();
     }
     }
+  
+  public static void playGame(int boardLength, int boardHeight, boolean gameOver, String playerOneName, String playerTwoName, boolean p1turn, boolean p2turn, Scanner scn){
+    // for loop: get player's input and print board
     
-    /*
-    System.out.println("---");
-    System.out.println("---");
-    System.out.println("---");
-    */
+    while(!gameOver){
+      board(boardLength, boardHeight);
+      p1turn = true;
+      System.out.println(playerOneName + "'s turn (x): ");
+      System.out.println("Enter row number (1-" + boardLength + "): ");
+      int row = scn.nextInt();
+      System.out.println("Enter column number (1-" + boardHeight + "): ");
+      int col = scn.nextInt();
+    }
+  }
 
+  
+    
+    
 }

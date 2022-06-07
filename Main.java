@@ -65,7 +65,8 @@ System.out.println("Player two, What's your name? ");
   
   public static void playGame(int boardLength, int boardHeight, boolean gameOver, String playerOneName, String playerTwoName, boolean p1turn, boolean p2turn, Scanner scn){
     // for loop: get player's input and print board
-    
+    // p1
+    p1turn = true;
     while(!gameOver){
       board(boardLength, boardHeight);
       p1turn = true;
@@ -85,11 +86,46 @@ System.out.println("Player two, What's your name? ");
         System.out.println("Please enter a valid row number: ");
           col = scn.nextInt() - 1;
         }
+        
       }
-    }
+      p1turn = false;
+      
+      
+    
+  
+    // p2 turn
+
+      
+      board(boardLength, boardHeight);
+      p2turn = true;
+      System.out.println(playerTwoName + "'s turn (x): ");
+      System.out.println("Enter row number (1-" + boardLength + "): ");
+      row = scn.nextInt() - 1;
+      if (row < 0 || row > boardLength - 1){
+        while (row < 0 || row > boardLength - 1){
+        System.out.println("Please enter a valid row number: ");
+          row = scn.nextInt() - 1;
+        }
+      }
+      System.out.println("Enter column number (1-" + boardHeight + "): ");
+      col = scn.nextInt() - 1;
+      if (col < 0 || col > boardLength - 1){
+        while (col < 0 || col > boardLength -1){
+        System.out.println("Please enter a valid row number: ");
+          col = scn.nextInt() - 1;
+        }
+        
+      }
+      p2turn = false;
+      
+      
+    
   }
+
 
   
     
     
+}
+
 }

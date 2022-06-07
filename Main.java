@@ -20,8 +20,13 @@ class Main {
     boolean p1turn = false;
     boolean p2turn = false;
     boolean gameOver = false;
-    String playerOneName = "";
-    String playerTwoName = "";
+    
+    System.out.println("Welcome to special tic-tac-toe!");
+    System.out.println("Player one, What's your name? ");
+    String playerOneName = scn.next();
+
+System.out.println("Player two, What's your name? ");
+    String playerTwoName = scn.next();
     
     introduction(scn, playerOneName, playerTwoName);
     playGame(boardLength, boardHeight, gameOver, playerOneName, playerTwoName, p1turn, p2turn, scn);
@@ -30,12 +35,6 @@ class Main {
   }
 
   public static void introduction(Scanner scn, String playerOneName, String playerTwoName){
-    System.out.println("Welcome to special tic-tac-toe!");
-    System.out.println("Player one, What's your name? ");
-    playerOneName = scn.next();
-
-System.out.println("Player two, What's your name? ");
-    playerTwoName = scn.next();
     System.out.println("Welcome, " + playerOneName + " and " + playerTwoName + "!");
     System.out.println("Would you like to customize settings for your tic-tac-toe game? (y/n) ");
     if (scn.next().toLowerCase().equals("y")){
@@ -49,7 +48,7 @@ System.out.println("Player two, What's your name? ");
     
     System.out.println("Pick your board height: (default is 3)");
       boardHeight = scn.nextInt() - 1;
-     System.out.println(boardLength + " " + boardHeight);
+     // System.out.println(boardLength + " " + boardHeight);
   }
   public static void board(int boardLength, int boardHeight){
     System.out.println("Board:");
